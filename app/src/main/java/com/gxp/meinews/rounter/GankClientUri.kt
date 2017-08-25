@@ -7,7 +7,9 @@ object GankClientUri {
     //关于Activity
     const val ABOUT = "gank://androidwing.net/about/"
 
-
+    const val FLAG_INIT = 0
+    const val FLAG_REFRESH = 1
+    const val FLAG_LOAD_MORE = 2
 
 
     //详情页

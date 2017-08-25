@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MeiNews</string>
-
+    <string name="meizi">福利</string>
+    <string name="android">Android</string>
+    <string name="ios">IOS</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

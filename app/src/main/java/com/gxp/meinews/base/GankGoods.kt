@@ -3,7 +3,7 @@ package com.gxp.meinews.base
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-class GankGoods(
+data class GankGoods(
         val _id: String,
         val createdAt: String,
         val desc: String,
@@ -13,7 +13,9 @@ class GankGoods(
         val type: String,
         val url: String,
         val used: Boolean,
-        val who: String
+        val who: String,
+        var width:Float,
+        var height:Float
 ) {
 
     fun create() = createdAt.substring(0,10)

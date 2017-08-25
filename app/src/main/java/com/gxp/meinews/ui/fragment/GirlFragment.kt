@@ -17,6 +17,26 @@ import javax.inject.Inject
  */
 class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView {
 
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoadingMore() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun addData(result: List<GankGoods>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoadingMore(b: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     @Inject protected lateinit var mPresenter: GankGoodsPresenter
 
     override fun setData(results: List<GankGoods>) {
@@ -27,7 +47,11 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView {
         MeiApp.instance.getAppComponent().plus(GankGoodsModule(this)).inject(this)
     }
 
-    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View =inflater!!.inflate(R.layout.activity_main,container,false)
+    override fun inflateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View
+            =inflater!!.inflate(R.layout.fragment_meizi,container,false)
+
+    override fun initData() {
+    }
 
     companion object {
         val GIRL = "girl"

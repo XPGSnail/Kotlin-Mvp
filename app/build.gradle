@@ -55,4 +55,6 @@ dependencies {
 
     implementation config.kotlinStdlib
     implementation config.kotlinReflect
+    implementation config.adapterHelper
+    implementation config.circleimageview
 }

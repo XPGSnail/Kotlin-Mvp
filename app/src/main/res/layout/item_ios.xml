@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:contentPadding="3dp">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/dip60"
+            android:layout_height="@dimen/dip60"
+            android:layout_margin="@dimen/dip14"
+            android:layout_marginEnd="@dimen/dip14"
+            android:layout_marginStart="@dimen/dip14"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dip5"
+            android:layout_marginLeft="@dimen/dip14"
+            android:hint="作者"
+            android:textColor="@color/blue_grey"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dip14"
+            android:layout_marginTop="@dimen/dip5"
+            android:ellipsize="end"
+            android:hint="描述信息"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

@@ -10,6 +10,11 @@ import rx.Observable
 interface BaseContract {
     interface IView {
         fun setData(results: List<GankGoods>)
+        fun showLoading()
+        fun showLoadingMore()
+        fun addData(result: List<GankGoods>)
+        fun hideLoadingMore(b: Boolean)
+        fun hideLoading()
     }
     interface IModel{
         fun getData(page: Int,type:String): Observable<HttpResult<List<GankGoods>>>

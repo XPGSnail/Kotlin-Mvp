@@ -1,7 +1,7 @@
 package com.gxp.meinews.ui.fragment
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,20 +11,32 @@ import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-abstract class BaseFragment<P: GankGoodsPresenter>:Fragment(),BaseContract.IView {
+abstract class BaseFragment<P: GankGoodsPresenter>: Fragment(),BaseContract.IView {
 
 
     private lateinit var mInitView:View
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mInitView = initView(inflater, container, savedInstanceState)
+        mInitView = inflateView(inflater, container, savedInstanceState)
         setComponent()
         return mInitView
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        initData()
+    }
+
+    abstract fun initData()
+
     abstract fun setComponent()
 
-    abstract fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View
+    abstract fun inflateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View
 
 
 
