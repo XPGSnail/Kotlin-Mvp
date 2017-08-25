@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-class FuckGoodsPresenter @Inject
+class GankGoodsPresenter @Inject
 constructor(private val mModel:BaseModel,
             private val mView:BaseContract.IView):BasePresenter(),IPresenter {
 

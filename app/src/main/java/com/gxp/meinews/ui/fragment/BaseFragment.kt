@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.gxp.meinews.mvp.contract.BaseContract
-import com.gxp.meinews.mvp.presenter.FuckGoodsPresenter
-import javax.inject.Inject
+import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
 
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-abstract class BaseFragment<P:FuckGoodsPresenter>:Fragment(),BaseContract.IView {
+abstract class BaseFragment<P: GankGoodsPresenter>:Fragment(),BaseContract.IView {
 
 
     private lateinit var mInitView:View

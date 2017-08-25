@@ -8,15 +8,15 @@ import com.gxp.meinews.MeiApp
 import com.gxp.meinews.R
 import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.di.module.GankGoodsModule
-import com.gxp.meinews.mvp.presenter.FuckGoodsPresenter
+import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
 import javax.inject.Inject
 
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-class AndroidFragment : BaseFragment<FuckGoodsPresenter>() {
+class AndroidFragment : BaseFragment<GankGoodsPresenter>() {
 
-    @Inject protected lateinit var mPresenter: FuckGoodsPresenter
+    @Inject protected lateinit var mPresenter: GankGoodsPresenter
 
     override fun setData(results: List<GankGoods>) {
 //        mPresenter.getData()

@@ -16,6 +16,5 @@ class GankGoods(
         val who: String
 ) {
 
-    fun hasImg():Boolean = images!=null
     fun create() = createdAt.substring(0,10)
 }
