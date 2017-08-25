@@ -2,7 +2,7 @@ package com.gxp.meinews.di.component
 
 import com.gxp.meinews.MeiApp
 import com.gxp.meinews.di.module.ApiModule
-import com.gxp.meinews.di.module.FuckGoodsModule
+import com.gxp.meinews.di.module.GankGoodsModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,6 +17,6 @@ interface ApiComponent {
 
     fun inject(app:MeiApp)
 
-    fun plus(module: FuckGoodsModule): FuckGoodsComponent
+    fun plus(module: GankGoodsModule): GankGoodsComponent
 
 }

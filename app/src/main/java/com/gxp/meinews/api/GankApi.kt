@@ -1,6 +1,6 @@
 package com.gxp.meinews.api
 
-import com.gxp.meinews.base.FuckGoods
+import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.base.HttpResult
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,19 +16,19 @@ interface GankApi {
      * Android所有数据
      */
     @GET("data/Android/10/{page}")
-    fun getAndroidData(@Path("page") page:Int): Observable<HttpResult<List<FuckGoods>>>
+    fun getAndroidData(@Path("page") page:Int): Observable<HttpResult<List<GankGoods>>>
 
     /**
      * iOS所有数据
      */
     @GET("data/iOS/10/{page}")
-    fun getiOSData(@Path("page") page:Int):Observable<HttpResult<List<FuckGoods>>>
+    fun getiOSData(@Path("page") page:Int):Observable<HttpResult<List<GankGoods>>>
 
     /**
      * iOS所有数据
      */
     @GET("data/福利/10/{page}")
-    fun getGirlData(@Path("page") page:Int): Observable<HttpResult<List<FuckGoods>>>
+    fun getGirlData(@Path("page") page:Int): Observable<HttpResult<List<GankGoods>>>
 
 
     /**
@@ -36,5 +36,5 @@ interface GankApi {
      */
 
     @GET("random/data/{type}/1")
-    fun getRandom(@Path("type") type:String): Observable<HttpResult<List<FuckGoods>>>
+    fun getRandom(@Path("type") type:String): Observable<HttpResult<List<GankGoods>>>
 }

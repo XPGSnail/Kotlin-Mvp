@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.gxp.meinews.MeiApp
 import com.gxp.meinews.R
-import com.gxp.meinews.base.FuckGoods
-import com.gxp.meinews.di.module.FuckGoodsModule
+import com.gxp.meinews.base.GankGoods
+import com.gxp.meinews.di.module.GankGoodsModule
 import com.gxp.meinews.mvp.contract.BaseContract
 import com.gxp.meinews.mvp.presenter.FuckGoodsPresenter
 import javax.inject.Inject
@@ -19,12 +19,12 @@ class GirlFragment : BaseFragment<FuckGoodsPresenter>(), BaseContract.IView {
 
     @Inject protected lateinit var mPresenter: FuckGoodsPresenter
 
-    override fun setData(results: List<FuckGoods>) {
+    override fun setData(results: List<GankGoods>) {
 //        mPresenter.getData()
     }
 
     override fun setComponent() {
-        MeiApp.instance.getAppComponent().plus(FuckGoodsModule(this)).inject(this)
+        MeiApp.instance.getAppComponent().plus(GankGoodsModule(this)).inject(this)
     }
 
     override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View =inflater!!.inflate(R.layout.activity_main,container,false)

@@ -1,6 +1,6 @@
 package com.gxp.meinews.mvp.contract
 
-import com.gxp.meinews.base.FuckGoods
+import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.base.HttpResult
 import rx.Observable
 
@@ -9,10 +9,10 @@ import rx.Observable
  */
 interface BaseContract {
     interface IView {
-        fun setData(results: List<FuckGoods>)
+        fun setData(results: List<GankGoods>)
     }
     interface IModel{
-        fun getData(page: Int,type:String): Observable<HttpResult<List<FuckGoods>>>
+        fun getData(page: Int,type:String): Observable<HttpResult<List<GankGoods>>>
     }
 
 }

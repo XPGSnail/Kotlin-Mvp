@@ -1,7 +1,7 @@
 package com.gxp.meinews.mvp.model
 
 import com.gxp.meinews.api.GankApi
-import com.gxp.meinews.base.FuckGoods
+import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.base.HttpResult
 import com.gxp.meinews.mvp.contract.BaseContract
 import com.gxp.meinews.ui.fragment.AndroidFragment
@@ -15,7 +15,7 @@ import javax.inject.Inject
  */
 class BaseModel @Inject
     constructor(private var gankApi: GankApi):BaseContract.IModel {
-    override fun getData(page: Int, type: String): Observable<HttpResult<List<FuckGoods>>> {
+    override fun getData(page: Int, type: String): Observable<HttpResult<List<GankGoods>>> {
         when (type) {
             AndroidFragment.ANDROID -> {
                 return gankApi.getAndroidData(page)

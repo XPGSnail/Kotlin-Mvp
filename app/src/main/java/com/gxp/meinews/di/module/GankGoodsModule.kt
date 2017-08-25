@@ -8,7 +8,7 @@ import dagger.Provides
  * Created by pandaGuo on 2017/8/23.
  */
 @Module
-class FuckGoodsModule(private val mView: BaseContract.IView){
+class GankGoodsModule(private val mView: BaseContract.IView){
     @Provides
     fun getView() = mView
 
