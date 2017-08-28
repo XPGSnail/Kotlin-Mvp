@@ -23,7 +23,9 @@ class MeiZiAdapter(data: List<GankGoods>?) : BaseQuickAdapter<GankGoods, BaseVie
         imageView.setOriginalSize(item.width, item.height)
         Glide.with(mContext)
                 .load(item.url)
-                .apply(RequestOptions().centerCrop())
+                .apply(RequestOptions()
+                        .dontAnimate()
+                        .centerCrop())
                 .into(imageView)
     }
 

@@ -8,7 +8,7 @@
     app:cardElevation="5dp">
 
 
-    <cn.studyjams.s2.sj0131.snail.widget.ScaleImageView
+    <com.gxp.meinews.ui.widget.ScaleImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

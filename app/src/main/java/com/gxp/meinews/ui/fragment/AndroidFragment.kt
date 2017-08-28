@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +37,7 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
     override fun onLoadMoreRequested() {
         recyclerView.postDelayed({
             if (mPage >= MAX_PAGE) {
-                mAdapter!!.loadMoreEnd()
+                mAdapter.loadMoreEnd()
             } else {
                 ++mPage
                 mPresenter.getData(mPage, ANDROID, GankClientUri.FLAG_LOAD_MORE)
@@ -52,14 +51,14 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
     }
 
     override fun addData(result: List<GankGoods>) {
-        mAdapter!!.addData(result)
+        mAdapter.addData(result)
     }
 
     override fun hideLoadingMore(b: Boolean) {
         if (b) {
-            mAdapter!!.loadMoreComplete()
+            mAdapter.loadMoreComplete()
         } else {
-            mAdapter!!.loadMoreFail()
+            mAdapter.loadMoreFail()
         }
         swipeRefreshLayout.isEnabled = true
     }
@@ -68,11 +67,11 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
         if (swipeRefreshLayout.isRefreshing) {
             swipeRefreshLayout.isRefreshing = false
         }
-        mAdapter!!.setEnableLoadMore(true)
+        mAdapter.setEnableLoadMore(true)
     }
 
     override fun showLoading() {
-        mAdapter!!.setEnableLoadMore(false)
+        mAdapter.setEnableLoadMore(false)
         swipeRefreshLayout.isEnabled = true
     }
 
@@ -81,19 +80,16 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
     private val MAX_PAGE = 10
 
     override fun setData(results: List<GankGoods>) {
-        mAdapter!!.setNewData(results)
-        mAdapter!!.disableLoadMoreIfNotFullPage(recyclerView)
+        mAdapter.setNewData(results)
+        mAdapter.disableLoadMoreIfNotFullPage(recyclerView)
     }
 
     override fun setComponent() {
         MeiApp.instance.getAppComponent().plus(GankGoodsModule(this)).inject(this)
     }
 
-    override fun inflateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        Log.d("initView","initView")
-        val view =  inflater!!.inflate(R.layout.fragment_android, container, false)
-        return view
-    }
+    override fun inflateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
+         = inflater!!.inflate(R.layout.fragment_android, container, false)
 
     override fun initData() {
         initRecyclerView()
@@ -103,15 +99,15 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
 
     private fun initListener() {
         swipeRefreshLayout.setOnRefreshListener(this)
-        mAdapter!!.setOnLoadMoreListener(this)
-        mAdapter!!.onItemClickListener = this
+        mAdapter.setOnLoadMoreListener(this)
+        mAdapter.onItemClickListener = this
     }
 
-    private var mList2 = ArrayList<Int>()
-    private var mAdapter: AndroidAdapter? = null
+    private var mList = ArrayList<GankGoods>()
+    private lateinit var mAdapter: AndroidAdapter
 
     private fun initRecyclerView() {
-        var mList = ArrayList<GankGoods>()
+
         swipeRefreshLayout.setColorSchemeResources(R.color.pink, R.color.blue_grey)
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL

@@ -1,5 +1,6 @@
 package com.gxp.meinews.mvp.contract
 
+import android.content.Context
 import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.base.HttpResult
 import rx.Observable
@@ -15,6 +16,7 @@ interface BaseContract {
         fun addData(result: List<GankGoods>)
         fun hideLoadingMore(b: Boolean)
         fun hideLoading()
+        fun getContext(): Context
     }
     interface IModel{
         fun getData(page: Int,type:String): Observable<HttpResult<List<GankGoods>>>
