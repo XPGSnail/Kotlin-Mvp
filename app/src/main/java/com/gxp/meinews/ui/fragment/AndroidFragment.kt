@@ -17,7 +17,6 @@ import com.gxp.meinews.rounter.GankClientUri
 import com.gxp.meinews.ui.adapter.AndroidAdapter
 import com.gxp.meinews.ui.widget.DividerDecoration
 import kotlinx.android.synthetic.main.fragment_android.*
-import javax.inject.Inject
 
 /**
  * Created by pandaGuo on 2017/8/23.
@@ -75,7 +74,7 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
         swipeRefreshLayout.isEnabled = true
     }
 
-    @Inject protected lateinit var mPresenter: GankGoodsPresenter
+//    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
     private val MAX_PAGE = 10
 

@@ -19,7 +19,6 @@ import com.gxp.meinews.rounter.GankClientUri
 import com.gxp.meinews.ui.adapter.IOSAdapter
 import com.gxp.meinews.ui.widget.DividerDecoration
 import kotlinx.android.synthetic.main.fragment_ios.*
-import javax.inject.Inject
 
 /**
  * Created by pandaGuo on 2017/8/23.
@@ -80,7 +79,7 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
         mAdapter.setEnableLoadMore(false)
         swipeRefreshLayout.isEnabled = true
     }
-    @Inject protected lateinit var mPresenter: GankGoodsPresenter
+//    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
     private val MAX_PAGE = 10
 

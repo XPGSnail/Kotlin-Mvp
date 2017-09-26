@@ -3,7 +3,7 @@ package com.gxp.meinews.ui.fragment
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,6 @@ import com.gxp.meinews.rounter.GankClientUri
 import com.gxp.meinews.ui.adapter.MeiZiAdapter
 import com.gxp.meinews.ui.widget.DividerDecoration
 import kotlinx.android.synthetic.main.fragment_meizi.*
-import javax.inject.Inject
 
 /**
  * Created by pandaGuo on 2017/8/23.
@@ -76,7 +75,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
         swipeRefreshLayout.isEnabled = true
     }
 
-    @Inject protected lateinit var mPresenter: GankGoodsPresenter
+//    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
     private val MAX_PAGE = 10
 
@@ -110,11 +109,9 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
     private fun initRecyclerView() {
 
         swipeRefreshLayout.setColorSchemeResources(R.color.pink, R.color.blue_grey)
-//        val layoutManager = StaggeredGridLayoutManager(2,
-//                StaggeredGridLayoutManager.VERTICAL)
-        val layoutManager = GridLayoutManager(context, 2)
-        layoutManager.orientation = GridLayoutManager.VERTICAL
-        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL)
+        (recyclerView.layoutManager as StaggeredGridLayoutManager).gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
         recyclerView.addItemDecoration(DividerDecoration(10))
         mAdapter = MeiZiAdapter(mList)
         recyclerView.adapter = mAdapter

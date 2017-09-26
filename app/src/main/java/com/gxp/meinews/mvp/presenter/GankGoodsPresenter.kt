@@ -7,6 +7,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.gxp.meinews.MeiApp
 import com.gxp.meinews.R
+import com.gxp.meinews.Utils.AppUtils
 import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.mvp.contract.BaseContract
 import com.gxp.meinews.mvp.model.BaseModel
@@ -86,8 +87,11 @@ constructor(private val mModel: BaseModel,
                     } catch (e: ExecutionException) {
                         BitmapFactory.decodeResource(MeiApp.instance.resources, R.mipmap.ic_launcher)
                     }
-                    it.width = bitmap!!.width.toFloat()
-                    it.height = bitmap!!.height.toFloat()
+                    val imageViewWidth = (AppUtils.w(mView.getContext())
+                            -mView.getContext().resources.getDimensionPixelSize(R.dimen.dip1) * 4) / 2
+                    val imageViewHeight: Int = ((imageViewWidth.toDouble() / bitmap.width) * bitmap.height).toInt()
+                    it.width = imageViewWidth.toFloat()
+                    it.height = imageViewHeight.toFloat()
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ res ->

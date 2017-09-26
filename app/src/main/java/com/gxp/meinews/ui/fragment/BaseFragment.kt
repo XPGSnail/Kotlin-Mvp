@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.gxp.meinews.mvp.contract.BaseContract
 import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
+import javax.inject.Inject
 
 /**
  * Created by pandaGuo on 2017/8/23.
  */
 abstract class BaseFragment<P: GankGoodsPresenter>: Fragment(),BaseContract.IView {
 
+    @Inject protected lateinit var mPresenter: P
 
     private lateinit var mInitView:View
 
