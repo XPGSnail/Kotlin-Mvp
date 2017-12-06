@@ -16,18 +16,18 @@ import javax.inject.Inject
 class BaseModel @Inject
     constructor(private var gankApi: GankApi):BaseContract.IModel {
     override fun getData(page: Int, type: String): Observable<HttpResult<List<GankGoods>>> {
-        when (type) {
+        return when (type) {
             AndroidFragment.ANDROID -> {
-                return gankApi.getAndroidData(page)
+                gankApi.getAndroidData(page)
             }
             IOSFragment.IOS -> {
-                return gankApi.getiOSData(page)
+                gankApi.getiOSData(page)
             }
             GirlFragment.GIRL -> {
-                return gankApi.getGirlData(page)
+                gankApi.getGirlData(page)
             }
             else ->{
-                return gankApi.getAndroidData(page)
+                gankApi.getAndroidData(page)
             }
         }
     }

@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.gxp.meinews"
         minSdkVersion 16
@@ -48,7 +48,6 @@ dependencies {
     implementation config.okhttp3
     implementation config.okhttpLoggingInterceptor
 
-    implementation config.glide
     implementation config.dagger
     kapt config.daggerCompiler
     compileOnly config.javaxAnnotation
@@ -57,4 +56,13 @@ dependencies {
     implementation config.kotlinReflect
     implementation config.adapterHelper
     implementation config.circleimageview
+
+    //fresco
+    implementation config.fresco
+    // 支持 GIF 动图，需要添加
+    implementation config.frescoGif
+
+    // 支持 WebP （静态图+动图），需要添加
+    implementation config.frescoWebanimated
+    implementation config.frescoWebsupport
 }

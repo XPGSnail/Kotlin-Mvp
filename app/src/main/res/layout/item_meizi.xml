@@ -8,12 +8,12 @@
     app:cardElevation="5dp">
 
 
-    <com.gxp.meinews.ui.widget.ScaleImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"/>
+        app:actualImageScaleType="centerCrop"/>
 
 
 </android.support.v7.widget.CardView>

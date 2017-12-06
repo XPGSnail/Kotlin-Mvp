@@ -16,7 +16,7 @@
         android:orientation="vertical"
         >
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView"
             android:layout_width="@dimen/dip60"
             android:layout_height="@dimen/dip60"
@@ -24,7 +24,7 @@
             android:layout_marginEnd="@dimen/dip14"
             android:layout_marginStart="@dimen/dip14"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            app:actualImageScaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>

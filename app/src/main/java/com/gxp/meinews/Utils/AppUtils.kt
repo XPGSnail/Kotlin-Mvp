@@ -1,15 +1,10 @@
 package com.gxp.meinews.Utils
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.support.v4.app.Fragment
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.graphics.drawable.Drawable
 import android.util.DisplayMetrics
 import android.view.WindowManager
-import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.gxp.meinews.MeiApp
 
 
 object AppUtils {
@@ -36,19 +31,6 @@ object AppUtils {
         return c == null || c.size == 0
     }
 
-
-    fun loadCircleImage(context: Fragment, url: String, iv: ImageView) {
-        Glide.with(context).asBitmap().load(url).apply(RequestOptions().centerCrop())
-                .into(object : BitmapImageViewTarget(iv) {
-                    override fun setResource(resource: Bitmap?) {
-                        val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(context.resources, resource)
-                        circularBitmapDrawable.isCircular = true
-                        iv.setImageDrawable(circularBitmapDrawable)
-                    }
-                })
-
-    }
-
     internal var height = 0
     internal var width = 0
 
@@ -72,4 +54,8 @@ object AppUtils {
         return height
     }
 
+
+    internal fun getDrawable(id:Int): Drawable {
+        return MeiApp.instance.resources.getDrawable(id)
+    }
 }

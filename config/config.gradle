@@ -3,9 +3,9 @@ ext {
     compileSdkVersion = 26
     minSdkVersion = 16
     targetSdkVersion = 26
-    buildToolsVersion = '26.0.1'
+    buildToolsVersion = '26.0.2'
 
-    supportLibVersion = "26.0.1"
+    supportLibVersion = "26.0.2"
     retrofitLibVersion = "2.3.0"
     okhttpLibVersion = "3.8.1"
     daggerLibVersion = "2.10"
@@ -22,6 +22,7 @@ ext {
     leackcanarySdkVersion = "1.5.0"
     adapterHelperVersion = "2.9.27"
     glideVersion = "4.0.0"
+    frescoSdkVersion = '1.5.0'
 
     config = [
             // Dagger2
@@ -60,6 +61,11 @@ ext {
 
             //adapter-help
             adapterHelper           : "com.github.CymChad:BaseRecyclerViewAdapterHelper:$adapterHelperVersion",
-            circleimageview         : 'de.hdodenhof:circleimageview:2.1.0'
+            circleimageview         : 'de.hdodenhof:circleimageview:2.1.0',
+            //Fresco
+            "fresco"                : "com.facebook.fresco:fresco:$frescoSdkVersion",
+            "frescoGif"            : "com.facebook.fresco:animated-gif:$frescoSdkVersion",
+            "frescoWebsupport"     : "com.facebook.fresco:animated-webp:$frescoSdkVersion",
+            "frescoWebanimated"    : "com.facebook.fresco:webpsupport:$frescoSdkVersion",
     ]
 }

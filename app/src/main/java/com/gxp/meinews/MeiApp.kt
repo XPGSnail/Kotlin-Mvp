@@ -5,8 +5,7 @@ import com.gxp.meinews.di.component.ApiComponent
 import com.gxp.meinews.di.component.DaggerApiComponent
 import com.gxp.meinews.di.module.ApiModule
 import com.gxp.meinews.di.module.AppModule
-import com.gxp.meinews.rounter.GankClientUri
-import javax.inject.Inject
+import com.gxp.meinews.imageload.ImageloadUtils
 
 /**
  * Created by pandaGuo on 2017/8/23.
@@ -19,6 +18,7 @@ class MeiApp: Application() {
 
     private lateinit var apiComponent:ApiComponent
     override fun onCreate() {
+        ImageloadUtils.init(this)
         super.onCreate()
         apiComponent = DaggerApiComponent.builder()
                 .apiModule(ApiModule())
