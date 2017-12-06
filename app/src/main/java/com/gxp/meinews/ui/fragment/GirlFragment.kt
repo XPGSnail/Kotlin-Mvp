@@ -77,7 +77,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
         swipeRefreshLayout.isEnabled = true
     }
 
-//    @Inject protected lateinit var mPresenter: GankGoodsPresenter
+    //    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
 
     override fun setData(results: List<GankGoods>) {
@@ -100,7 +100,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
 
     private fun initListener() {
         swipeRefreshLayout.setOnRefreshListener(this)
-        mAdapter.setOnLoadMoreListener(this,recyclerView)
+        mAdapter.setOnLoadMoreListener(this, recyclerView)
         mAdapter.onItemClickListener = this
     }
 
@@ -116,11 +116,11 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
         recyclerView.addItemDecoration(DividerDecoration(10))
         mAdapter = MeiZiAdapter(mList)
         recyclerView.adapter = mAdapter
-        recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
                 when (newState) {
-                    RecyclerView.SCROLL_STATE_IDLE -> ImageloadUtils.pause()
-                    else -> ImageloadUtils.resume()
+                    RecyclerView.SCROLL_STATE_IDLE  -> ImageloadUtils.resume()
+                    else -> ImageloadUtils.pause()
                 }
             }
         })

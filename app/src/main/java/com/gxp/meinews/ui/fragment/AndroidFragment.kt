@@ -122,8 +122,8 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>()
         recyclerView.addOnScrollListener(object:RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
                 when (newState) {
-                    RecyclerView.SCROLL_STATE_IDLE ->ImageloadUtils.pause()
-                    else ->ImageloadUtils.resume()
+                    RecyclerView.SCROLL_STATE_IDLE ->ImageloadUtils.resume()
+                    else ->ImageloadUtils.pause()
                 }
             }
         })
