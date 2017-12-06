@@ -93,7 +93,7 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>()
     }
 
     override fun inflateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
-         = inflater!!.inflate(R.layout.fragment_android, container, false)
+         = inflater!!.inflate(R.layout.fragment_android, container, false)!!
 
     override fun initData() {
         initRecyclerView()
@@ -131,7 +131,7 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>()
 
     companion object {
         val ANDROID = "android"
-        fun newInstanct(): AndroidFragment {
+        fun newInstance(): AndroidFragment {
             var fragment = AndroidFragment()
             var bundle = Bundle()
             fragment.arguments = bundle

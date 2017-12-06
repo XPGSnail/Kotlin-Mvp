@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun initFragments() {
-        mAndroidFragment = AndroidFragment.newInstanct()
-        mIOSFragment = IOSFragment.newInstanct()
-        mMeiZiFragment = GirlFragment.newInstanct()
+        mAndroidFragment = AndroidFragment.newInstance()
+        mIOSFragment = IOSFragment.newInstance()
+        mMeiZiFragment = GirlFragment.newInstance()
     }
 
     private fun addFragment(fragment: Fragment) {

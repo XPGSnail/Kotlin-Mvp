@@ -133,7 +133,7 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
 
     companion object {
         val IOS = "ios"
-        fun newInstanct(): IOSFragment {
+        fun newInstance(): IOSFragment {
             var fragment = IOSFragment()
             var bundle = Bundle()
             fragment.arguments = bundle

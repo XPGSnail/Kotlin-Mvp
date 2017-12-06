@@ -129,7 +129,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
 
     companion object {
         val GIRL = "girl"
-        fun newInstanct(): GirlFragment {
+        fun newInstance(): GirlFragment {
             var fragment = GirlFragment()
             var bundle = Bundle()
             fragment.arguments = bundle
