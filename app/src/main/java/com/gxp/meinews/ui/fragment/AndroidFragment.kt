@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.gxp.meinews.MeiApp
 import com.gxp.meinews.R
 import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.di.module.GankGoodsModule
+import com.gxp.meinews.imageload.ImageloadUtils
 import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
 import com.gxp.meinews.rounter.GankClientUri
 import com.gxp.meinews.ui.adapter.AndroidAdapter
@@ -21,7 +23,10 @@ import kotlinx.android.synthetic.main.fragment_android.*
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnItemClickListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+class AndroidFragment : BaseFragment<GankGoodsPresenter>()
+        , BaseQuickAdapter.OnItemClickListener
+        , BaseQuickAdapter.RequestLoadMoreListener
+        , SwipeRefreshLayout.OnRefreshListener {
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
         Snackbar.make(view!!, "hi,what are you wishing for？", Snackbar.LENGTH_SHORT)
@@ -114,6 +119,14 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>(), BaseQuickAdapter.OnI
         recyclerView.addItemDecoration(DividerDecoration(10))
         mAdapter = AndroidAdapter(mList)
         recyclerView.adapter = mAdapter
+        recyclerView.addOnScrollListener(object:RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+                when (newState) {
+                    RecyclerView.SCROLL_STATE_IDLE ->ImageloadUtils.pause()
+                    else ->ImageloadUtils.resume()
+                }
+            }
+        })
     }
 
     companion object {

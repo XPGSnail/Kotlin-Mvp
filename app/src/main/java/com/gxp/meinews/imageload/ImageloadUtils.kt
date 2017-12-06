@@ -193,6 +193,20 @@ object ImageloadUtils {
         hierarchy.roundingParams = roundingParams
     }
 
+
+    /**
+     * 暂停网络请求
+     */
+    fun pause() {
+        Fresco.getImagePipeline().pause()
+    }
+
+    /**
+     * 恢复网络请求
+     */
+    fun resume() {
+        Fresco.getImagePipeline().resume()
+    }
 }
 
 

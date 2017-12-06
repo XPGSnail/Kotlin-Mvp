@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.gxp.meinews.MeiApp
 import com.gxp.meinews.R
 import com.gxp.meinews.base.GankGoods
 import com.gxp.meinews.di.module.GankGoodsModule
+import com.gxp.meinews.imageload.ImageloadUtils
 import com.gxp.meinews.mvp.contract.BaseContract
 import com.gxp.meinews.mvp.presenter.GankGoodsPresenter
 import com.gxp.meinews.rounter.GankClientUri
@@ -119,6 +121,14 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
         recyclerView.addItemDecoration(DividerDecoration(10))
         mAdapter = IOSAdapter(mList)
         recyclerView.adapter = mAdapter
+        recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+                when (newState) {
+                    RecyclerView.SCROLL_STATE_IDLE -> ImageloadUtils.pause()
+                    else -> ImageloadUtils.resume()
+                }
+            }
+        })
     }
 
     companion object {
