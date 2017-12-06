@@ -103,7 +103,7 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>()
 
     private fun initListener() {
         swipeRefreshLayout.setOnRefreshListener(this)
-        mAdapter.setOnLoadMoreListener(this)
+        mAdapter.setOnLoadMoreListener(this,recyclerView)
         mAdapter.onItemClickListener = this
     }
 

@@ -106,7 +106,7 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
 
     private fun initListener() {
         swipeRefreshLayout.setOnRefreshListener(this)
-        mAdapter.setOnLoadMoreListener(this)
+        mAdapter.setOnLoadMoreListener(this,recyclerView)
         mAdapter.onItemClickListener = this
     }
 

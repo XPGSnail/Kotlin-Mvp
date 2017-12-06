@@ -101,7 +101,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
 
     private fun initListener() {
         swipeRefreshLayout.setOnRefreshListener(this)
-        mAdapter.setOnLoadMoreListener(this)
+        mAdapter.setOnLoadMoreListener(this,recyclerView)
         mAdapter.onItemClickListener = this
     }
 

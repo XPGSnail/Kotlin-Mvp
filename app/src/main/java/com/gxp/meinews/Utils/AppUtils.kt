@@ -17,7 +17,7 @@ object AppUtils {
      * @return
      */
     fun <V, T> isEmpty(map: Map<V, T>?): Boolean {
-        return map == null || map.size == 0
+        return map == null || map.isEmpty()
     }
 
     /**
@@ -28,7 +28,7 @@ object AppUtils {
      * @return
     </V> */
     fun <V> isEmpty(c: Collection<V>?): Boolean {
-        return c == null || c.size == 0
+        return c == null || c.isEmpty()
     }
 
     internal var height = 0
