@@ -38,7 +38,7 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
 
     override fun onLoadMoreRequested() {
         recyclerView.postDelayed({
-            if (mPage >= MAX_PAGE) {
+            if (mPage >= Companion.MAX_PAGE) {
                 mAdapter.loadMoreEnd()
             } else {
                 ++mPage
@@ -79,7 +79,6 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
 
 //    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
-    private val MAX_PAGE = 10
 
     override fun setData(results: List<GankGoods>) {
         mAdapter.setNewData(results)
@@ -130,11 +129,13 @@ class GirlFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Bas
     companion object {
         val GIRL = "girl"
         fun newInstance(): GirlFragment {
-            var fragment = GirlFragment()
-            var bundle = Bundle()
+            val fragment = GirlFragment()
+            val bundle = Bundle()
             fragment.arguments = bundle
             return fragment
         }
+
+        private val MAX_PAGE = 10
     }
 
     override fun onDestroy() {

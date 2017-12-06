@@ -132,8 +132,8 @@ class AndroidFragment : BaseFragment<GankGoodsPresenter>()
     companion object {
         val ANDROID = "android"
         fun newInstance(): AndroidFragment {
-            var fragment = AndroidFragment()
-            var bundle = Bundle()
+            val fragment = AndroidFragment()
+            val bundle = Bundle()
             fragment.arguments = bundle
             return fragment
         }

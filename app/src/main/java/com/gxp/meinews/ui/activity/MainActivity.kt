@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    lateinit var mAndroidFragment: Fragment
-    lateinit var mIOSFragment: Fragment
-    lateinit var mMeiZiFragment: Fragment
+    private lateinit var mAndroidFragment: Fragment
+    private lateinit var mIOSFragment: Fragment
+    private lateinit var mMeiZiFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,13 +68,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_settings -> {
                 Snackbar.make(fab, "hi,what are you wishing for？", Snackbar.LENGTH_SHORT)
                         .setAction("1", null).show()
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

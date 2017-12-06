@@ -43,7 +43,7 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
 
     override fun onLoadMoreRequested() {
         recyclerView.postDelayed({
-            if (mPage >= MAX_PAGE) {
+            if (mPage >= Companion.MAX_PAGE) {
                 mAdapter.loadMoreEnd()
             } else {
                 ++mPage
@@ -83,7 +83,6 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
     }
 //    @Inject protected lateinit var mPresenter: GankGoodsPresenter
     private var mPage = 1
-    private val MAX_PAGE = 10
 
 
     override fun setData(results: List<GankGoods>) {
@@ -134,11 +133,13 @@ class IOSFragment : BaseFragment<GankGoodsPresenter>(), BaseContract.IView, Base
     companion object {
         val IOS = "ios"
         fun newInstance(): IOSFragment {
-            var fragment = IOSFragment()
-            var bundle = Bundle()
+            val fragment = IOSFragment()
+            val bundle = Bundle()
             fragment.arguments = bundle
             return fragment
         }
+
+        private val MAX_PAGE = 10
     }
 
     override fun onDestroy() {
