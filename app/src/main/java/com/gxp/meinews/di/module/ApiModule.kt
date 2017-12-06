@@ -16,12 +16,15 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import rx.schedulers.Schedulers
 import java.io.File
+import javax.inject.Singleton
 
 /**
  * Created by pandaGuo on 2017/8/23.
  */
 @Module(includes = arrayOf(AppModule::class))
 class ApiModule() {
+
+    @Singleton
     @Provides
     fun provideRetrofit(client:OkHttpClient,gson:Gson)=
             Retrofit.Builder()
@@ -31,12 +34,14 @@ class ApiModule() {
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io()))
                     .build()
 
+    @Singleton
     @Provides
     fun provideGson() = GsonBuilder().create()
 
 //    @Provides
 //    fun provideHttpUrl() = HttpUrl.parse(httpUrl)
 
+    @Singleton
     @Provides
     fun provideOkhttpClient(context: Context, interceptor: HttpLoggingInterceptor):OkHttpClient{
         val cacheSize = 1024 * 1024 * 10L
@@ -47,6 +52,7 @@ class ApiModule() {
                 .addInterceptor(interceptor).build()
     }
 
+    @Singleton
     @Provides
     fun provideInterceptor() :HttpLoggingInterceptor{
         val interceptor = HttpLoggingInterceptor{
@@ -56,6 +62,7 @@ class ApiModule() {
         return interceptor
     }
 
+    @Singleton
     @Provides
     fun provideApi(retrofit:Retrofit) = retrofit.create(GankApi::class.java)
 }
