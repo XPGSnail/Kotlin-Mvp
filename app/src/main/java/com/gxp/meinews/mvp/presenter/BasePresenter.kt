@@ -6,7 +6,7 @@ import rx.subscriptions.CompositeSubscription
 /**
  * Created by pandaGuo on 2017/8/23.
  */
-open class BasePresenter {
+open class BasePresenter{
 
     var compositeSubscription = CompositeSubscription()
 
